@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 887, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 176
+  controlID: 50
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 344}
   m_MaxSize: {x: 4002, y: 8044}
   vertical: 1
-  controlID: 97
+  controlID: 121
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -459,9 +459,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: ae2f0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 76fbffff
+      m_ExpandedIDs: 8cfbffff3a2c0000442c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -547,9 +547,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.05624786, y: 5.502148, z: -1.3226389}
+    m_Target: {x: -0.37129256, y: 1.68866, z: 0.60264236}
     speed: 2
-    m_Value: {x: -0.05624786, y: 5.502148, z: -1.3226389}
+    m_Value: {x: -0.37129256, y: 1.68866, z: 0.60264236}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,13 +578,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.60335994, y: 0.14983591, z: -0.11672721, w: -0.7745236}
+    m_Target: {x: -0.0031958406, y: -0.7034899, z: -0.003167593, w: 0.7107011}
     speed: 2
-    m_Value: {x: -0.60335815, y: 0.14983547, z: -0.11672686, w: -0.7745213}
+    m_Value: {x: -0.0031958178, y: -0.7034849, z: -0.0031675703, w: 0.71069604}
   m_Size:
-    m_Target: 3.2527764
+    m_Target: 4.319076
     speed: 2
-    m_Value: 3.2527764
+    m_Value: 4.319076
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -714,20 +714,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 57
   m_LastProjectPath: D:\Users\johny\Projekty\Izo Shooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 66290000
-    m_LastClickedID: 10598
-    m_ExpandedIDs: 000000006629000000ca9a3b
+    m_SelectedIDs: 962b0000
+    m_LastClickedID: 11158
+    m_ExpandedIDs: 000000006429000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -755,7 +755,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 419}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066290000
+    m_ExpandedIDs: 0000000064290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000000000001c2c0000303200008a2e00008c2e0000342c00008e2e00006c2e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 13}
+      m_ClientGUIView: {fileID: 14}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
