@@ -8,6 +8,8 @@ public class Subject : MonoBehaviour, IDamageable
     public float startingHealth;
     protected float health;
     protected bool dead;
+
+    public System.Action OnDeath;
     
     protected virtual void  Start()
     {
@@ -32,6 +34,10 @@ public class Subject : MonoBehaviour, IDamageable
     protected void Die()
     {
         dead = true;
+        if (OnDeath != null)
+        {
+            OnDeath();
+        }
         Destroy(gameObject);
     }
 }
