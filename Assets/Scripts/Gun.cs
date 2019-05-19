@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform muzzle;
+    public Projectile projectile;
+    public float fireCooldown = 100f;
+    public float muzzleVelocity = 35f;
+
+    private float nextShotTime;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Shoot()
+    {
+        if (Time.time > nextShotTime)
+        {
+            nextShotTime = Time.time + fireCooldown / 1000;
+            Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation);
+            newProjectile.SetSpeed(muzzleVelocity);
+        }
     }
 }
