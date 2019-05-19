@@ -23,6 +23,12 @@ public class Subject : MonoBehaviour, IDamageable
 
     public void TakeHit(float damage, RaycastHit hit)
     {
+        //TODO for future use
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(float damage)
+    {
         health -= damage;
 
         if (health <= 0 && !dead)
