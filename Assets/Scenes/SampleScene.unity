@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6ba514e8029c444a19cfed60b49dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 10
   moveSpeed: 5
 --- !u!114 &644434784
 MonoBehaviour:
@@ -797,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612840522b1f3ee4d8999427051945c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 10
 --- !u!195 &1974838306
 NavMeshAgent:
   m_ObjectHideFlags: 0
