@@ -10,7 +10,10 @@ public class MapEditor : Editor
     {
         base.OnInspectorGUI();
 
-        MapGenerator map = target as MapGenerator;
-        map.GenerateMap();
+        if (GUI.changed)
+        {
+            MapGenerator map = target as MapGenerator;
+            map.GenerateMap();
+        }
     }
 }
