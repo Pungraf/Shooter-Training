@@ -40,6 +40,8 @@ public class MapGenerator : MonoBehaviour
         
         System.Random prng = new System.Random(currentMap.seed);
         
+        GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x * tileSize, .05f, currentMap.mapSize.y * tileSize);
+        
         // Generating coords
         allTileCords = new List<Coord>();
         for (int x = 0; x < currentMap.mapSize.x; x++)
@@ -94,6 +96,12 @@ public class MapGenerator : MonoBehaviour
                     Quaternion.identity);
                 newObstacle.parent = mapHolder;
                 newObstacle.localScale = new Vector3((1 - outlinePercent) * tileSize, obstacleHeight,  (1 - outlinePercent) * tileSize);
+
+                Renderer obstacleRenderer = newObstacle.GetComponent<Renderer>();
+                Material obstacleMaterial = new Material(obstacleRenderer.sharedMaterial);
+                float colourPercent = randomCoord.y / (float)currentMap.mapSize.y;
+                obstacleMaterial.color = Color.Lerp(currentMap.foregroundColor, currentMap.backgroundColor, colourPercent);
+                obstacleRenderer.sharedMaterial = obstacleMaterial;
             }
             else
             {
@@ -103,21 +111,21 @@ public class MapGenerator : MonoBehaviour
         }
 
         // Creating navmesh mask
-        Transform maskLeft = Instantiate(navmeshMaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x) / 4 * tileSize, Quaternion.identity);
+        Transform maskLeft = Instantiate(navmeshMaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity);
         maskLeft.parent = mapHolder;
-        maskLeft.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x)/2, 1, currentMap.mapSize.y) * tileSize;
+        maskLeft.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x)/2f, 1, currentMap.mapSize.y) * tileSize;
         
-        Transform maskRight = Instantiate(navmeshMaskPrefab, Vector3.right * (currentMap.mapSize.x + maxMapSize.x) / 4 * tileSize, Quaternion.identity);
+        Transform maskRight = Instantiate(navmeshMaskPrefab, Vector3.right * (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity);
         maskRight.parent = mapHolder;
-        maskRight.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x)/2, 1, currentMap.mapSize.y) * tileSize;
+        maskRight.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x)/2f, 1, currentMap.mapSize.y) * tileSize;
         
-        Transform maskTop = Instantiate(navmeshMaskPrefab, Vector3.forward * (currentMap.mapSize.y + maxMapSize.y) / 4 * tileSize, Quaternion.identity);
+        Transform maskTop = Instantiate(navmeshMaskPrefab, Vector3.forward * (currentMap.mapSize.y + maxMapSize.y) / 4f * tileSize, Quaternion.identity);
         maskTop.parent = mapHolder;
-        maskTop.localScale = new Vector3((maxMapSize.x), 1, (maxMapSize.y - currentMap.mapSize.y)/2) * tileSize;
+        maskTop.localScale = new Vector3((maxMapSize.x), 1, (maxMapSize.y - currentMap.mapSize.y)/2f) * tileSize;
         
-        Transform maskBottom = Instantiate(navmeshMaskPrefab, Vector3.back * (currentMap.mapSize.y + maxMapSize.y) / 4 * tileSize, Quaternion.identity);
+        Transform maskBottom = Instantiate(navmeshMaskPrefab, Vector3.back * (currentMap.mapSize.y + maxMapSize.y) / 4f * tileSize, Quaternion.identity);
         maskBottom.parent = mapHolder;
-        maskBottom.localScale = new Vector3((maxMapSize.x), 1, (maxMapSize.y - currentMap.mapSize.y)/2) * tileSize;
+        maskBottom.localScale = new Vector3((maxMapSize.x), 1, (maxMapSize.y - currentMap.mapSize.y)/2f) * tileSize;
         
         navmeshFloor.localScale = new Vector3(maxMapSize.x, maxMapSize.y) * tileSize;
     }
@@ -165,7 +173,7 @@ public class MapGenerator : MonoBehaviour
 
     Vector3 CordToPosition(int x, int y)
     {
-        return  new Vector3(-currentMap.mapSize.x/2 + .5f + x, 0f, -currentMap.mapSize.y/2 + .5f + y) * tileSize;
+        return  new Vector3(-currentMap.mapSize.x/2f + .5f + x, 0f, -currentMap.mapSize.y/2f + .5f + y) * tileSize;
     }
 
     public Coord GetRandomCoord()
