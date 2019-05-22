@@ -21,13 +21,12 @@ public class Subject : MonoBehaviour, IDamageable
         
     }
 
-    public void TakeHit(float damage, RaycastHit hit)
+    public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
     {
-        //TODO for future use
         TakeDamage(damage);
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         health -= damage;
 
@@ -36,7 +35,8 @@ public class Subject : MonoBehaviour, IDamageable
             Die();
         }
     }
-
+ 
+    [ContextMenu("Self destruct")]
     protected void Die()
     {
         dead = true;

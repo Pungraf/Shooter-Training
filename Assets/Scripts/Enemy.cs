@@ -9,6 +9,8 @@ public class Enemy : Subject
     public enum State{Idle, Chasing, Attacking}
 
     private State currentState;
+
+    public ParticleSystem deathEffect;
     
     private NavMeshAgent pathFinder;
     private Transform target;
@@ -68,6 +70,15 @@ public class Enemy : Subject
     {
         hasTarget = false;
         currentState = State.Idle;
+    }
+
+    public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
+    {
+        if (damage >= health)
+        {
+            Destroy(Instantiate(deathEffect, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.startLifetime);
+        }
+        base.TakeHit(damage, hitPoint, hitDirection);
     }
 
     IEnumerator Attack()

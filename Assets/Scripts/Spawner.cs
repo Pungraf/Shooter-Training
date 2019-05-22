@@ -25,6 +25,8 @@ public class Spawner : MonoBehaviour
     private Vector3 campPositionOld;
     private bool isCamping;
     private bool isDisabled;
+
+    public event System.Action<int> OnNewWave;
     
     [System.Serializable]
     public class Wave
@@ -108,6 +110,12 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    //TODO maybe move to ane GameManager
+    void ResetPlayerPositiom()
+    {
+        playerT.position = map.GetTileFromPosition(Vector3.zero).position + Vector3.up * 3;
+    }
+
     void NextWave()
     {
         currentWaveNumber++;
@@ -117,6 +125,12 @@ public class Spawner : MonoBehaviour
 
             enemiesRemainingToSpawn = currentWave.enemyCount;
             enemiesRemainingAlive = enemiesRemainingToSpawn;
+
+            if (OnNewWave != null)
+            {
+                OnNewWave(currentWaveNumber);
+            }
+            ResetPlayerPositiom();
         }
     }
 }
