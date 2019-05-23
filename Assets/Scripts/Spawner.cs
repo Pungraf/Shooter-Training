@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public bool devMode;
+    
     public Wave[] waves;
     public Enemy enemy;
 
@@ -31,8 +33,14 @@ public class Spawner : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
+        public bool infinite;
         public int enemyCount;
         public float timeBetweenSpawns;
+
+        public float moveSpeed;
+        public int enemyDamage;
+        public float enemyHealth;
+        public Color skinColor;
     } 
     void Start()
     {
@@ -59,12 +67,25 @@ public class Spawner : MonoBehaviour
                 campPositionOld = playerT.position;
             }
 
-            if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTIme)
+            if ((enemiesRemainingToSpawn > 0 || currentWave.infinite) && Time.time > nextSpawnTIme)
             {
                 enemiesRemainingToSpawn--;
                 nextSpawnTIme = Time.time + currentWave.timeBetweenSpawns;
 
                 StartCoroutine(SpawnEnemy());
+            }
+        }
+
+        if (devMode)
+        {
+            if (Input.GetKeyDown(KeyCode.Equals))
+            {
+                StopCoroutine(SpawnEnemy());
+                foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+                {
+                    Destroy(enemy.gameObject);
+                }
+                NextWave();
             }
         }
     }
@@ -94,6 +115,7 @@ public class Spawner : MonoBehaviour
         
         Enemy spawnedEnemy = Instantiate(enemy, randomTile.position + Vector3.up, Quaternion.identity);
         spawnedEnemy.OnDeath += OnEnemyDeath;
+        spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.enemyDamage, currentWave.enemyHealth, currentWave.skinColor);
     }
 
     void OnPlayerDead()

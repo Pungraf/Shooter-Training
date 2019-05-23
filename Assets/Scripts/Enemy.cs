@@ -26,25 +26,32 @@ public class Enemy : Subject
     private Subject targetSubject;
     private Material skinMaterial;
     private Color originalColor;
-    
-    protected override void Start()
+
+    private void Awake()
     {
-        base.Start();
         pathFinder = GetComponent<NavMeshAgent>();
-        skinMaterial = GetComponent<Renderer>().material;
-        originalColor = skinMaterial.color;
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             hasTarget = true;
             target = GameObject.FindGameObjectWithTag("Player").transform;
             targetSubject = target.GetComponent<Subject>();
-            targetSubject.OnDeath += OnTargetDeath;
-            currentState = State.Chasing;
 
             myCollisionRadius = GetComponent<CapsuleCollider>().radius;
             targetCollisionRadius = target.GetComponent<CapsuleCollider>().radius;
+        } 
+    }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        if (hasTarget)
+        {
+            
+            targetSubject.OnDeath += OnTargetDeath;
+            currentState = State.Chasing;
+            
             StartCoroutine(UpdatePath());
         } 
     }
@@ -64,6 +71,16 @@ public class Enemy : Subject
                 }
             }
         }
+    }
+
+    public void SetCharacteristics(float moveSpeed, int enemyDamage, float enemyHealth, Color skinColor)
+    {
+        pathFinder.speed = moveSpeed;
+        damage = enemyDamage;
+        startingHealth = enemyHealth;
+        skinMaterial = GetComponent<Renderer>().material;
+        skinMaterial.color = skinColor;
+        originalColor = skinMaterial.color;
     }
 
     void OnTargetDeath()
