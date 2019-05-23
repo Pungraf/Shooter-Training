@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public Transform muzzle;
+    public enum FireMode
+    {
+        Auto,
+        Single
+    };
+
+    public FireMode fireMode;
+
+    public Transform[] projectileSpawn;
     public Projectile projectile;
     public float fireCooldown = 100f;
     public float muzzleVelocity = 35f;
 
     private float nextShotTime;
+    private bool triggerReleased;
     
     void Start()
     {
@@ -21,13 +30,35 @@ public class Gun : MonoBehaviour
         
     }
 
-    public void Shoot()
+    private void Shoot()
     {
         if (Time.time > nextShotTime)
         {
-            nextShotTime = Time.time + fireCooldown / 1000;
-            Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation);
-            newProjectile.SetSpeed(muzzleVelocity);
+            if (fireMode == FireMode.Single)
+            {
+                if (!triggerReleased)
+                {
+                    return;
+                }
+            }
+
+            for (int i = 0; i < projectileSpawn.Length; i++)
+            {
+                nextShotTime = Time.time + fireCooldown / 1000;
+                Projectile newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation);
+                newProjectile.SetSpeed(muzzleVelocity);
+            }
         }
+    }
+
+    public void OnTriggerHold()
+    {
+        Shoot();
+        triggerReleased = false;
+    }
+
+    public void OnTriggerReleased()
+    {
+        triggerReleased = true;
     }
 }

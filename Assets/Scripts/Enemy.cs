@@ -76,7 +76,7 @@ public class Enemy : Subject
     {
         if (damage >= health)
         {
-            Destroy(Instantiate(deathEffect, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.startLifetime);
+            Destroy(Instantiate(deathEffect, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.main.startLifetime.constant);
         }
         base.TakeHit(damage, hitPoint, hitDirection);
     }
