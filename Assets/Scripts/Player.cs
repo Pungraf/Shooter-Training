@@ -39,6 +39,10 @@ public class Player : Subject
             controller.LookAt(point);
             crosshair.transform.position = point;
             crosshair.DetectTarget(ray);
+            if ((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).magnitude > 1)
+            {
+                gunController.Aim(point);
+            }
         }
         
         //Weapon input
@@ -50,6 +54,11 @@ public class Player : Subject
         if (Input.GetMouseButtonUp(0))
         {
             gunController.OnTriggerRelease();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gunController.Reload();
         }
     }
 }

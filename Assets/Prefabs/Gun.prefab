@@ -266,6 +266,12 @@ MonoBehaviour:
     type: 3}
   fireCooldown: 100
   muzzleVelocity: 35
+  magCapacity: 10
+  reloadSpeed: 0.3
+  kickMinMax: {x: 0.05, y: 0.2}
+  recoilAngleMinMax: {x: 3, y: 5}
+  recoilMovementSettleTime: 0.1
+  recoilRotationSettleTime: 0.1
 --- !u!1 &6835033166288144430
 GameObject:
   m_ObjectHideFlags: 0
