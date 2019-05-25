@@ -78,7 +78,7 @@ public class Enemy : Subject
         pathFinder.speed = moveSpeed;
         damage = enemyDamage;
         startingHealth = enemyHealth;
-        skinMaterial = GetComponent<Renderer>().material;
+        skinMaterial = GetComponent<Renderer>().sharedMaterial;
         skinMaterial.color = skinColor;
         originalColor = skinMaterial.color;
     }

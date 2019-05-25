@@ -16,9 +16,14 @@ public class Player : Subject
     protected override void Start()
     {
         base.Start();
+    }
+
+    private void Awake()
+    {
         controller = GetComponent<PlayerController>();
         gunController = GetComponent<GunController>();
         camera = Camera.main;
+        FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
     }
 
     void Update()
@@ -60,5 +65,11 @@ public class Player : Subject
         {
             gunController.Reload();
         }
+    }
+
+    public void OnNewWave(int waveNumber)
+    {
+        health = startingHealth;
+        gunController.EquipGun(waveNumber -1);
     }
 }

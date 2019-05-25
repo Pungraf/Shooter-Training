@@ -5773,7 +5773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6ba514e8029c444a19cfed60b49dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 100
   moveSpeed: 5
   crosshair: {fileID: 218204053}
 --- !u!114 &644434784
@@ -5832,8 +5832,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponHold: {fileID: 1773932852}
-  StartingGun: {fileID: -855620963072244261, guid: 3aeb71207cd13f640879daa841bff39d,
-    type: 3}
+  gunList:
+  - {fileID: -855620963072244261, guid: f6191a0f0eacb804b9b27073c9414a00, type: 3}
+  - {fileID: -855620963072244261, guid: 3aeb71207cd13f640879daa841bff39d, type: 3}
+  - {fileID: -855620963072244261, guid: 46f300e98fbc0484bb3eb7597506c3ec, type: 3}
+  - {fileID: -855620963072244261, guid: 11b806f3f8b628d42a475a1d4be5d949, type: 3}
+  - {fileID: -855620963072244261, guid: f6191a0f0eacb804b9b27073c9414a00, type: 3}
 --- !u!136 &644434788
 CapsuleCollider:
   m_ObjectHideFlags: 0
