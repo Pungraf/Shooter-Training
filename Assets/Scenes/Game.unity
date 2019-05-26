@@ -5575,6 +5575,7 @@ GameObject:
   - component: {fileID: 597327233}
   - component: {fileID: 597327235}
   - component: {fileID: 597327234}
+  - component: {fileID: 597327236}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -5626,6 +5627,37 @@ MonoBehaviour:
   masterVolumePercent: 1
   sfxVolumePercent: 1
   musicVolumePercent: 1
+--- !u!114 &597327236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597327232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a373c8c097f8fbc4d883839d6579926c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroups:
+  - groupID: Impacts
+    group:
+    - {fileID: 8300000, guid: 097415a0377ddea4fa53a06c185c7a68, type: 3}
+    - {fileID: 8300000, guid: 6e94761bfadaccd45b2373de32f84fcd, type: 3}
+    - {fileID: 8300000, guid: b9a9849759e14b34b99557eeb360bf5b, type: 3}
+  - groupID: Death
+    group:
+    - {fileID: 8300000, guid: 0e42bb6792ef3c148a51969d28a805c9, type: 3}
+    - {fileID: 8300000, guid: 866b43ac68d70e94bacf26a408d7ac61, type: 3}
+  - groupID: Hit
+    group:
+    - {fileID: 8300000, guid: fa18b64fab68d23499977f051df31a18, type: 3}
+  - groupID: Player death
+    group:
+    - {fileID: 8300000, guid: 92f91b3cff7649f41a278a503ce05945, type: 3}
+  - groupID: Level complet
+    group:
+    - {fileID: 8300000, guid: 00aeb30cea9bfc143a5912ab091bc796, type: 3}
 --- !u!1 &608745565
 GameObject:
   m_ObjectHideFlags: 0

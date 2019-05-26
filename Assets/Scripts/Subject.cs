@@ -37,7 +37,7 @@ public class Subject : MonoBehaviour, IDamageable
     }
  
     [ContextMenu("Self destruct")]
-    protected void Die()
+    public virtual void Die()
     {
         dead = true;
         if (OnDeath != null)

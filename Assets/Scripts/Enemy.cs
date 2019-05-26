@@ -67,6 +67,7 @@ public class Enemy : Subject
                     Mathf.Pow(attackDistanceThreshold + myCollisionRadius + targetCollisionRadius, 2))
                 {
                     nextAttackTime = Time.time + timeBetweenAtacks;
+                    AudioManager.instance.PlaySound("Hit", transform.position);
                     StartCoroutine(Attack());
                 }
             }
@@ -91,11 +92,14 @@ public class Enemy : Subject
 
     public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
     {
+        AudioManager.instance.PlaySound("Impact", transform.position);
         if (damage >= health)
         {
+            AudioManager.instance.PlaySound("Death", transform.position);
             Destroy(Instantiate(deathEffect, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.main.startLifetime.constant);
         }
         base.TakeHit(damage, hitPoint, hitDirection);
+        
     }
 
     IEnumerator Attack()
