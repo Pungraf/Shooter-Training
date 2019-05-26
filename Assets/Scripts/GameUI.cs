@@ -41,16 +41,18 @@ public class GameUI : MonoBehaviour
     {
         string[] numbers = {"One", "Two", "Three", "Four", "Five"};
         newWaveTitle.text = "- Wave " + numbers[waveNumber - 1] + " -";
-        newWaveEnemyCount.text = "Enemies: " + spawner.waves[waveNumber - 1].enemyCount;
+        string enemyCountString = ((spawner.waves[waveNumber - 1].infinite) ? "Infinite" : spawner.waves[waveNumber - 1].enemyCount + "");
+        newWaveEnemyCount.text = "Enemies: " + enemyCountString;
 
+        StopCoroutine(AnimateNewWaveBanner());
         StartCoroutine(AnimateNewWaveBanner());
     }
 
     IEnumerator AnimateNewWaveBanner()
     {
-        float delay = 1f;
+        float delay = 1.5f;
         float percent = 0f;
-        float speed = 2.5f;
+        float speed = 3f;
         int dir = 1;
 
         float endDelayTime = Time.time + delay + 1/delay;

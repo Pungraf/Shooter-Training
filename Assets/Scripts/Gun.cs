@@ -26,6 +26,10 @@ public class Gun : MonoBehaviour
     public float recoilMovementSettleTime = .1f;
     public float recoilRotationSettleTime = .1f;
 
+    [Header("Effects")]
+    public AudioClip shootSound;
+    public AudioClip reloadSound;
+
     private float nextShotTime;
     private bool triggerReleased;
     private int projectileInMag;
@@ -79,6 +83,8 @@ public class Gun : MonoBehaviour
                 recoilAngle += Random.Range(recoilAngleMinMax.x, recoilAngleMinMax.y);
                 recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
             }
+            
+            AudioManager.instance.PlaySound(shootSound, transform.position);
         }
     }
 
@@ -87,6 +93,7 @@ public class Gun : MonoBehaviour
         if (!isReloading && projectileInMag != magCapacity)
         {
             StartCoroutine(AnimateReload());
+            AudioManager.instance.PlaySound(reloadSound, transform.position);
         }
     }
 
