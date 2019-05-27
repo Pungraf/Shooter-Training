@@ -10,7 +10,7 @@ public class Player : Subject
     public Crosshairs crosshair;
     
     private PlayerController controller;
-    private new Camera camera;
+    private Camera camera;
     private GunController gunController;
     
     protected override void Start()

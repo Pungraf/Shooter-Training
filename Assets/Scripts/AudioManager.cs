@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,14 +12,14 @@ public class AudioManager : MonoBehaviour
         Music
     };
     
-    public float masterVolumePercent = .2f;
-    public float sfxVolumePercent = 1f;
-    public float musicVolumePercent = 1f;
+    public float masterVolumePercent { get; private set; }
+    public float sfxVolumePercent { get; private set; }
+    public float musicVolumePercent { get; private set; }
 
     private AudioSource[] musicSources;
     private int activeMusicSourceIndex = 0;
     private Transform audioListener;
-    private Transform playerT;
+    public Transform playerT;
     private AudioLibrary library;
     private AudioSource sfx2DSource;
 
@@ -48,18 +49,26 @@ public class AudioManager : MonoBehaviour
             newSfx2DSource.transform.parent = transform;
 
             audioListener = FindObjectOfType<AudioListener>().transform;
-            playerT = FindObjectOfType<Player>().transform;
+            
             library = GetComponent<AudioLibrary>();
             
-            masterVolumePercent = PlayerPrefs.GetFloat("master vol", masterVolumePercent);
-            sfxVolumePercent = PlayerPrefs.GetFloat("sfx vol", sfxVolumePercent);
-            musicVolumePercent = PlayerPrefs.GetFloat("music vol", musicVolumePercent);
+            masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
+            sfxVolumePercent = PlayerPrefs.GetFloat("sfx vol", 1);
+            musicVolumePercent = PlayerPrefs.GetFloat("music vol", 1);
         }
     }
 
-    void Start()
+    private void OnEnable()
     {
-        
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        if (FindObjectOfType<Player>() != null)
+        {
+            playerT = FindObjectOfType<Player>().transform;
+        }
     }
     
     void Update()
@@ -91,6 +100,7 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("master vol", masterVolumePercent);
         PlayerPrefs.SetFloat("sfx vol", sfxVolumePercent);
         PlayerPrefs.SetFloat("music vol", musicVolumePercent);
+        PlayerPrefs.Save();
     }
 
     public void PlayMusic(AudioClip musicClip, float fadeDuration = 1)

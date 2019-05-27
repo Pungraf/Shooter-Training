@@ -20,6 +20,7 @@
           <e p="GunController.cs" t="Include" />
           <e p="IDamageable.cs" t="Include" />
           <e p="MapGenerator.cs" t="Include" />
+          <e p="Menu.cs" t="Include" />
           <e p="MusiscManager.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
