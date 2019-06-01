@@ -65,6 +65,11 @@ public class Player : Subject
         {
             gunController.Reload();
         }
+
+        if (transform.position.y < -10)
+        {
+            TakeDamage(health);
+        }
     }
 
     public void OnNewWave(int waveNumber)

@@ -27,6 +27,7 @@ public class Spawner : MonoBehaviour
     private Vector3 campPositionOld;
     private bool isCamping;
     private bool isDisabled;
+    private Color preInitalColor;
 
     public event System.Action<int> OnNewWave;
     
@@ -41,6 +42,7 @@ public class Spawner : MonoBehaviour
         public int enemyDamage;
         public float enemyHealth;
         public Color skinColor;
+        
     } 
     void Start()
     {
@@ -53,6 +55,7 @@ public class Spawner : MonoBehaviour
         
         map = FindObjectOfType<MapGenerator>();
         NextWave();
+        preInitalColor = map.GetRandomOpenTile().GetComponent<Renderer>().material.color;
     }
 
     void Update()
@@ -101,9 +104,9 @@ public class Spawner : MonoBehaviour
             randomTile = map.GetTileFromPosition(playerT.position);
         }
         Material tileMat = randomTile.GetComponent<Renderer>().material;
-        Color initialColor = Color.white;
+        Color initialColor = preInitalColor;
         Color flashColor = Color.red;
-        float spawnTimer = 0;
+        float spawnTimer = 0; 
 
         while (spawnTimer < spawnDelay)
         {

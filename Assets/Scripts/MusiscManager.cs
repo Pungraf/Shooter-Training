@@ -1,22 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusiscManager : MonoBehaviour
 {
     public AudioClip mainThem;
     public AudioClip menuThem;
-    
+
+    private string sceneName;
     void Start()
     {
-        AudioManager.instance.PlayMusic(mainThem, 2);
+        OnLevelWasLoaded(0);
     }
     
-    void Update()
+
+    void OnLevelWasLoaded(int sceneIndex)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        string newSceneName = SceneManager.GetActiveScene().name;
+
+        if (newSceneName != sceneName)
         {
-            AudioManager.instance.PlayMusic(mainThem, 3);
+            sceneName = newSceneName;
+            Invoke(nameof(PlayMusic), .2f);
+        }
+    }
+
+    void PlayMusic()
+    {
+        AudioClip clipToplay = null;
+
+        if (sceneName == "Menu")
+        {
+            clipToplay = menuThem;
+        }
+        else if (sceneName == "Game")
+        {
+            clipToplay = mainThem;
+        }
+
+        if (clipToplay != null)
+        {
+            AudioManager.instance.PlayMusic(clipToplay, 2);
+            Invoke(nameof(PlayMusic), clipToplay.length);
         }
     }
 }

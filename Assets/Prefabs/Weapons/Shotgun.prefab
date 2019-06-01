@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4086b82a79a2a4eb5078a24ffd55e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireMode: 0
+  fireMode: 1
   projectileSpawn:
   - {fileID: 1692144881799425581}
   - {fileID: 2541873005875185815}
@@ -399,5 +399,5 @@ MonoBehaviour:
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMovementSettleTime: 0.1
   recoilRotationSettleTime: 0.1
-  shootSound: {fileID: 8300000, guid: 3d7c354c6bb4bce49bcd85b4fda13358, type: 3}
+  shootSound: {fileID: 8300000, guid: 56f5b6fa20679894d8658d743a03e1e4, type: 3}
   reloadSound: {fileID: 8300000, guid: d2b70475c573e2e41936464efdaea916, type: 3}

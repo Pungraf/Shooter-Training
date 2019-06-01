@@ -357,15 +357,15 @@ MonoBehaviour:
   - {fileID: 1692144881799425581}
   projectile: {fileID: 153410008906891034, guid: 179a9571870b4b446a2e04c7726f2c2c,
     type: 3}
-  fireCooldown: 80
+  fireCooldown: 60
   muzzleVelocity: 40
   magCapacity: 30
-  reloadSpeed: 0.3
+  reloadSpeed: 1
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMovementSettleTime: 0.1
   recoilRotationSettleTime: 0.1
-  shootSound: {fileID: 8300000, guid: 80c68f93b0ba6a14d86f481303300b00, type: 3}
+  shootSound: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
   reloadSound: {fileID: 8300000, guid: d2b70475c573e2e41936464efdaea916, type: 3}
 --- !u!1 &6835033166288144430
 GameObject:

@@ -11,6 +11,7 @@ public class Enemy : Subject
     private State currentState;
 
     public ParticleSystem deathEffect;
+    public static event System.Action OnDeathStatic;
     
     private NavMeshAgent pathFinder;
     private Transform target;
@@ -79,7 +80,10 @@ public class Enemy : Subject
         pathFinder.speed = moveSpeed;
         damage = enemyDamage;
         startingHealth = enemyHealth;
-        skinMaterial = GetComponent<Renderer>().sharedMaterial;
+        
+        var main = deathEffect.main;
+        main.startColor = new Color(skinColor.r, skinColor.g, skinColor.b, 1);
+        skinMaterial = GetComponent<Renderer>().material;
         skinMaterial.color = skinColor;
         originalColor = skinMaterial.color;
     }
@@ -95,6 +99,10 @@ public class Enemy : Subject
         AudioManager.instance.PlaySound("Impact", transform.position);
         if (damage >= health)
         {
+            if (OnDeathStatic != null)
+            {
+                OnDeathStatic();
+            }
             AudioManager.instance.PlaySound("Death", transform.position);
             Destroy(Instantiate(deathEffect, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.main.startLifetime.constant);
         }

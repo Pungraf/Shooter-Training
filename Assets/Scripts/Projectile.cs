@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     private float damage = 1;
 
     private float lifeTime = 10;
-    private float skinWidth = .1f;
+    private float skinWidth = .5f;
     private static readonly int TintColor = Shader.PropertyToID("_TintColor");
 
     void Start()

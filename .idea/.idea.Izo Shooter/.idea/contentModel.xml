@@ -13,6 +13,7 @@
         <e p="Scripts" t="Include">
           <e p="AudioLibrary.cs" t="Include" />
           <e p="AudioManager.cs" t="Include" />
+          <e p="CameraController.cs" t="Include" />
           <e p="Crosshairs.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="GameUI.cs" t="Include" />
@@ -25,6 +26,7 @@
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
+          <e p="ScoreKeeper.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
           <e p="Subject.cs" t="Include" />
           <e p="Utility.cs" t="Include" />

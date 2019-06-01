@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15382ef6eed5d19439df62830b424bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerT: {fileID: 0}
 --- !u!114 &4290316689962384104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainThem: {fileID: 8300000, guid: d77e9155a8272414684eb33ee1275f7c, type: 3}
-  menuThem: {fileID: 8300000, guid: e37e729245f3308499a3a72227c91bc0, type: 3}
+  menuThem: {fileID: 8300000, guid: 578f2643649f8ab4a9c925da1aec3993, type: 3}
 --- !u!114 &4290316689962384110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,10 +121,9 @@ MonoBehaviour:
   - groupID: Death
     group:
     - {fileID: 8300000, guid: 0e42bb6792ef3c148a51969d28a805c9, type: 3}
-    - {fileID: 8300000, guid: 866b43ac68d70e94bacf26a408d7ac61, type: 3}
   - groupID: Hit
     group:
-    - {fileID: 8300000, guid: fa18b64fab68d23499977f051df31a18, type: 3}
+    - {fileID: 8300000, guid: 379bb66060fb94cbeaac20e1421ce065, type: 3}
   - groupID: Player death
     group:
     - {fileID: 8300000, guid: 92f91b3cff7649f41a278a503ce05945, type: 3}
