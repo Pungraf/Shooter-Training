@@ -12,19 +12,22 @@ public class Projectile : MonoBehaviour
     private float lifeTime = 10;
     private float skinWidth = .5f;
     private static readonly int TintColor = Shader.PropertyToID("_TintColor");
+    private TrailRenderer trailRenderer;
+
+
+    private void Awake()
+    {
+        trailRenderer = GetComponent<TrailRenderer>();
+    }
 
     void Start()
     {
-        //TODO Switch for Object Pool
-        Destroy(gameObject, lifeTime);
-
         Collider[] initialCollisions = Physics.OverlapSphere(transform.position, 0.1f, collisionMask);
         if (initialCollisions.Length > 0)
         {
             OnHitObject(initialCollisions[0], transform.position);
         }
-        
-        GetComponent<TrailRenderer>().material.SetColor(TintColor, trailColor);
+        trailRenderer.material.SetColor(TintColor, trailColor);
     }
 
     void Update()
@@ -32,6 +35,13 @@ public class Projectile : MonoBehaviour
         float moveDistance = speed * Time.deltaTime;
         CheckCollisions(moveDistance);
         transform.Translate(Vector3.forward * moveDistance);
+    }
+    
+    public  void OnObjectReuse(float muzzleVelocity)
+    {
+        trailRenderer.enabled = false;
+        Invoke(nameof(ResetTrail), .01f);
+        speed = muzzleVelocity;
     }
 
     public void SetSpeed(float newSpeed)
@@ -57,6 +67,17 @@ public class Projectile : MonoBehaviour
         {
             damageableObject.TakeHit(damage, hitPoint, transform.forward);
         }
-        Destroy(gameObject);
+        Destroy();
+    }
+
+    protected void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void ResetTrail()
+    {
+        trailRenderer.Clear();
+        trailRenderer.enabled = true;
     }
 }

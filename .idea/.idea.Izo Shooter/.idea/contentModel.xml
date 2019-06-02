@@ -25,6 +25,7 @@
           <e p="MusiscManager.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="PoolManager.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
           <e p="ScoreKeeper.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />

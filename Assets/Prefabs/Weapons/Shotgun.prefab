@@ -389,7 +389,7 @@ MonoBehaviour:
   - {fileID: 5244131519128342698}
   - {fileID: 3337402508629710534}
   - {fileID: 5022416277299655592}
-  projectile: {fileID: 153410008906891034, guid: 179a9571870b4b446a2e04c7726f2c2c,
+  projectile: {fileID: 2117844126460037668, guid: 179a9571870b4b446a2e04c7726f2c2c,
     type: 3}
   fireCooldown: 300
   muzzleVelocity: 40

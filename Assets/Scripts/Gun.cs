@@ -14,11 +14,13 @@ public class Gun : MonoBehaviour
     public FireMode fireMode;
 
     public Transform[] projectileSpawn;
-    public Projectile projectile;
+    public GameObject projectile;
     public float fireCooldown = 100f;
     public float muzzleVelocity = 35f;
     public int magCapacity;
     public float reloadSpeed = .3f;
+    public Queue<GameObject> bulletPool;
+
     
     [Header("Recoil")]
     public Vector2 kickMinMax = new Vector2(.05f, .2f);
@@ -42,6 +44,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         projectileInMag = magCapacity;
+        PoolManager.instance.CreatePool(projectile, 50);
     }
 
     void LateUpdate()
@@ -77,8 +80,8 @@ public class Gun : MonoBehaviour
                 }
                 projectileInMag--;
                 nextShotTime = Time.time + fireCooldown / 1000;
-                Projectile newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation);
-                newProjectile.SetSpeed(muzzleVelocity);
+                PoolManager.instance.RespawnObject(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation, muzzleVelocity);
+                //newProjectile.SetSpeed(muzzleVelocity);
                 transform.localPosition -= Vector3.forward * Random.Range(kickMinMax.x, kickMinMax.y);
                 recoilAngle += Random.Range(recoilAngleMinMax.x, recoilAngleMinMax.y);
                 recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
