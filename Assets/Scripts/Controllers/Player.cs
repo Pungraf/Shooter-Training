@@ -23,7 +23,10 @@ public class Player : Subject
         controller = GetComponent<PlayerController>();
         gunController = GetComponent<GunController>();
         camera = Camera.main;
-        FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
+        if(FindObjectOfType<Spawner>() != null)
+        {
+            FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
+        }
     }
 
     void Update()

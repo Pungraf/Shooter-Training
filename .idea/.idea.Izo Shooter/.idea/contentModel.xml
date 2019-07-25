@@ -11,26 +11,48 @@
           <e p="MapEditor.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="AudioLibrary.cs" t="Include" />
-          <e p="AudioManager.cs" t="Include" />
-          <e p="CameraController.cs" t="Include" />
-          <e p="Crosshairs.cs" t="Include" />
+          <e p="Controllers" t="Include">
+            <e p="CameraController.cs" t="Include" />
+            <e p="GunController.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerController.cs" t="Include" />
+          </e>
           <e p="Enemy.cs" t="Include" />
-          <e p="GameUI.cs" t="Include" />
-          <e p="Gun.cs" t="Include" />
-          <e p="GunController.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="IDamageable.cs" t="Include" />
-          <e p="MapGenerator.cs" t="Include" />
-          <e p="Menu.cs" t="Include" />
-          <e p="MusiscManager.cs" t="Include" />
-          <e p="Player.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
+          <e p="Items" t="Include">
+            <e p="Equipment.cs" t="Include" />
+            <e p="Gun.cs" t="Include" />
+            <e p="Interactable.cs" t="Include" />
+            <e p="Inventory.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
+            <e p="ItemPickup.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
+            <e p="WeaponObject.cs" t="Include" />
+          </e>
+          <e p="Map" t="Include">
+            <e p="MapGenerator.cs" t="Include" />
+          </e>
+          <e p="Music" t="Include">
+            <e p="AudioLibrary.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
+            <e p="MusiscManager.cs" t="Include" />
+          </e>
           <e p="PoolManager.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
-          <e p="ScoreKeeper.cs" t="Include" />
-          <e p="Spawner.cs" t="Include" />
+          <e p="Spawners" t="Include">
+            <e p="Spawner.cs" t="Include" />
+          </e>
           <e p="Subject.cs" t="Include" />
-          <e p="Utility.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="Crosshairs.cs" t="Include" />
+            <e p="GameUI.cs" t="Include" />
+            <e p="Menu.cs" t="Include" />
+            <e p="ScoreKeeper.cs" t="Include" />
+          </e>
+          <e p="Utility" t="Include">
+            <e p="Utility.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Izo Shooter.sln" t="IncludeFlat" />
