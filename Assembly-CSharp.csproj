@@ -67,13 +67,14 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\IDamageable.cs" />
     <Compile Include="Assets\Scripts\Items\Equipment.cs" />
+    <Compile Include="Assets\Scripts\Items\EquipmentManager.cs" />
+    <Compile Include="Assets\Scripts\Items\EquipmentObject.cs" />
     <Compile Include="Assets\Scripts\Items\Gun.cs" />
     <Compile Include="Assets\Scripts\Items\Interactable.cs" />
     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
-    <Compile Include="Assets\Scripts\Items\WeaponObject.cs" />
     <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\Music\AudioLibrary.cs" />
     <Compile Include="Assets\Scripts\Music\AudioManager.cs" />
@@ -84,6 +85,8 @@
     <Compile Include="Assets\Scripts\Subject.cs" />
     <Compile Include="Assets\Scripts\UI\Crosshairs.cs" />
     <Compile Include="Assets\Scripts\UI\GameUI.cs" />
+    <Compile Include="Assets\Scripts\UI\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\UI\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\ScoreKeeper.cs" />
     <Compile Include="Assets\Scripts\Utility\Utility.cs" />

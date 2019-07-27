@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 
-public class Gun : WeaponObject
+public class Gun : EquipmentObject
 {
     public enum FireMode
     {

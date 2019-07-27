@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    
     public Transform WeaponHold;
     public Gun[] gunList;
     private Gun equippedGun;
@@ -26,6 +27,8 @@ public class GunController : MonoBehaviour
         equippedGun = Instantiate(gunToEquip, WeaponHold.position, WeaponHold.rotation);
         equippedGun.transform.parent = WeaponHold;
     }
+    
+    
 
     public void EquipGun(int weaponID)
     {
