@@ -47,6 +47,8 @@
           <e p="Subject.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="Crosshairs.cs" t="Include" />
+            <e p="EqSlot.cs" t="Include" />
+            <e p="EquipmentUI.cs" t="Include" />
             <e p="GameUI.cs" t="Include" />
             <e p="InventorySlot.cs" t="Include" />
             <e p="InventoryUI.cs" t="Include" />

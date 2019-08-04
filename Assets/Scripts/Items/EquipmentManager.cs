@@ -18,6 +18,7 @@ public class EquipmentManager : MonoBehaviour
     private SkinnedMeshRenderer[] currentMesh;
     private Inventory inventory;
     public EquipmentObject equippedGun;
+    private GunController _gunController;
     
     //Weapons holds
     private Transform weaponHold;
@@ -34,7 +35,8 @@ public class EquipmentManager : MonoBehaviour
     
     private void Start()
     {
-        weaponHold = GameManager.instance.Player.GetComponent<GunController>().WeaponHold;
+        _gunController = GameManager.instance.Player.GetComponent<GunController>();
+        weaponHold = _gunController.WeaponHold;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         inventory = Inventory.instance;
         currentEquipment = new Equipment[numSlots];
@@ -66,6 +68,17 @@ public class EquipmentManager : MonoBehaviour
             onEquipmentEquiped.Invoke();
         }
         
+    }
+
+    public void Unequip(Equipment equipment)
+    {
+        int slotIndex = (int) equipment.equipSlot;
+        
+        if (currentEquipment[slotIndex] != null)
+        {
+            currentEquipment[slotIndex] = null;
+            inventory.Add(equipment);
+        }
     }
 
     /*public void RenderArmor(Armor newArmor)
@@ -130,6 +143,7 @@ public class EquipmentManager : MonoBehaviour
                 }
                 equippedGun = Instantiate(item.EquipmentPrefab, weaponHold.position, weaponHold.rotation);
                 equippedGun.transform.parent = weaponHold;
+                _gunController.equippedGun = (Gun) equippedGun;
                 break;
             case EquipmentSlot.MeleeWeapon:
                 MeleeWeapon = item.EquipmentPrefab;
@@ -146,6 +160,10 @@ public class EquipmentManager : MonoBehaviour
         switch (equipmentSlot)
         {
             case EquipmentSlot.RangedWeapon:
+                if (equippedGun != null)
+                {
+                    Destroy(equippedGun.gameObject);
+                }
                 RangedWeaapon = null;
                 break;
             case EquipmentSlot.MeleeWeapon:
